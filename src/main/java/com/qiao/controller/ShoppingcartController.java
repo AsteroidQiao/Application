@@ -48,7 +48,7 @@ public class ShoppingcartController {
 
     //新增
     @PostMapping("/insert")
-    public ResponseResult insert(@RequestParam Integer uid, @RequestParam Integer sid, @RequestParam Integer scount) {
+    public ResponseResult insert(@RequestParam Integer uid, @RequestParam Integer sid, @RequestParam Integer scount, @RequestParam Double size) {
 //        UpdateWrapper<Shoppingcart> shoppingcartUpdateWrapper = new UpdateWrapper<>();
 //
 //        shoppingcartUpdateWrapper.eq("sid",sid).eq("sid",sid);
@@ -56,6 +56,7 @@ public class ShoppingcartController {
         shoppingcart.setUid(uid);
         shoppingcart.setSid(sid);
         shoppingcart.setScount(scount);
+        shoppingcart.setSize(size);
         QueryWrapper<Shoppingcart> shoppingcartQueryWrapper = new QueryWrapper<>();
         shoppingcartQueryWrapper.eq("uid", uid).eq("sid", sid);
         Shoppingcart one = shoppingcartService.getOne(shoppingcartQueryWrapper);
