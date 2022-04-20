@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiao.mapper.UsersMapper">
+
+    <resultMap id="BaseResultMap" type="com.qiao.pojo.Users">
+        <id property="uid" column="uid" jdbcType="INTEGER"/>
+        <result property="uaccount" column="uaccount" jdbcType="VARCHAR"/>
+        <result property="uname" column="uname" jdbcType="VARCHAR"/>
+        <result property="utel" column="utel" jdbcType="VARCHAR"/>
+        <result property="ugender" column="ugender" jdbcType="VARCHAR"/>
+        <result property="upwd" column="upwd" jdbcType="VARCHAR"/>
+        <result property="uemail" column="uemail" jdbcType="VARCHAR"/>
+        <result property="uregtime" column="uregtime" jdbcType="TIMESTAMP"/>
+        <result property="uintegral" column="uintegral" jdbcType="FLOAT"/>
+        <result property="uinfo" column="uinfo" jdbcType="VARCHAR"/>
+        <result property="upwdask" column="upwdask" jdbcType="VARCHAR"/>
+        <result property="uwdans" column="uwdans" jdbcType="VARCHAR"/>
+        <result property="udelete" column="udelete" jdbcType="INTEGER"/>
+        <result property="uremarks" column="uremarks" jdbcType="VARCHAR"/>
+        <result property="avatarUrl" column="avatarUrl" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        uid
+        ,uaccount,uname,
+        utel,ugender,upwd,
+        uemail,uregtime,uintegral,
+        uinfo,upwdask,uwdans,
+        udelete,uremarks,avatarUrl
+    </sql>
+    <select id="selectOneByUaccountAndUpwd" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from users
+        where
+        uaccount = #{uaccount,jdbcType=VARCHAR}
+        AND upwd = #{upwd,jdbcType=VARCHAR}
+    </select>
+    <select id="getAllUser" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from users
+    </select>
+    <insert id="insertAll">
+        insert into users
+        (uaccount, uname,
+         upwd,
+         uemail, uregtime, uintegral,
+         uinfo, upwdask, uwdans,
+         uremarks, avatarUrl)
+        values (#{uaccount,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR},
+                #{upwd,jdbcType=VARCHAR},
+                #{uemail,jdbcType=VARCHAR}, #{uregtime,jdbcType=TIMESTAMP}, #{uintegral,jdbcType=DECIMAL},
+                #{uinfo,jdbcType=VARCHAR}, #{upwdask,jdbcType=VARCHAR}, #{uwdans,jdbcType=VARCHAR},
+                #{uremarks,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR})
+
+    </insert>
+    <select id="selectByUaccount" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from users
+        where
+        uaccount = #{uaccount,jdbcType=VARCHAR}
+    </select>
+</mapper>

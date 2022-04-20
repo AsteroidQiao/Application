@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiao.mapper.SecondKillsMapper">
+
+    <resultMap id="BaseResultMap" type="com.qiao.pojo.SecondKills">
+            <id property="skid" column="skid" jdbcType="INTEGER"/>
+            <result property="skSid" column="sk_sid" jdbcType="INTEGER"/>
+            <result property="skintegral" column="skintegral" jdbcType="FLOAT"/>
+            <result property="skamount" column="skamount" jdbcType="INTEGER"/>
+            <result property="skstarttime" column="skstarttime" jdbcType="TIMESTAMP"/>
+            <result property="skduratoin" column="skduratoin" jdbcType="TIMESTAMP"/>
+            <result property="skisvalid" column="skisvalid" jdbcType="INTEGER"/>
+            <result property="sksize" column="sksize" jdbcType="INTEGER"/>
+            <result property="skremarks" column="skremarks" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        skid,sk_sid,skintegral,
+        skamount,skstarttime,skduratoin,
+        skisvalid,sksize,skremarks
+    </sql>
+</mapper>

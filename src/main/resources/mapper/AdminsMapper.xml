@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiao.mapper.AdminsMapper">
+
+    <resultMap id="BaseResultMap" type="com.qiao.pojo.Admins">
+            <id property="aid" column="aid" jdbcType="INTEGER"/>
+            <result property="acount" column="acount" jdbcType="VARCHAR"/>
+            <result property="apwd" column="apwd" jdbcType="VARCHAR"/>
+            <result property="aPcid" column="a_pcid" jdbcType="INTEGER"/>
+            <result property="aremarks" column="aremarks" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        aid,acount,apwd,
+        a_pcid,aremarks
+    </sql>
+    <select id="selectOneByAcountAndApwd" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from admins
+        where
+        acount = #{acount,jdbcType=VARCHAR}
+        AND apwd = #{apwd,jdbcType=VARCHAR}
+    </select>
+    <select id="getAllAdmin" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from admins
+    </select>
+    <insert id="insertAll">
+        insert into admins
+        (aid,acount, apwd,
+         a_pcid, aremarks)
+        values (null, #{acount}, #{apwd},
+                #{aPcid}, #{aremarks})
+
+    </insert>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiao.mapper.CommentsMapper">
+
+    <resultMap id="BaseResultMap" type="com.qiao.pojo.Comments">
+            <id property="cid" column="cid" jdbcType="INTEGER"/>
+            <result property="cuid" column="cuid" jdbcType="INTEGER"/>
+            <result property="csid" column="csid" jdbcType="INTEGER"/>
+            <result property="sccomments" column="sccomments" jdbcType="VARCHAR"/>
+            <result property="scscore" column="scscore" jdbcType="INTEGER"/>
+            <result property="sctime" column="sctime" jdbcType="TIMESTAMP"/>
+            <result property="scoid" column="scoid" jdbcType="INTEGER"/>
+            <result property="scremarks" column="scremarks" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        cid,cuid,csid,
+        sccomments,scscore,sctime,
+        scoid,scremarks
+    </sql>
+</mapper>

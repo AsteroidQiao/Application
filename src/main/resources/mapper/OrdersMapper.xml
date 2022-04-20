@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiao.mapper.OrdersMapper">
+
+    <resultMap id="BaseResultMap" type="com.qiao.pojo.Orders">
+            <id property="oid" column="oid" jdbcType="INTEGER"/>
+            <result property="ouid" column="ouid" jdbcType="INTEGER"/>
+            <result property="sid" column="sid" jdbcType="INTEGER"/>
+            <result property="ocount" column="ocount" jdbcType="INTEGER"/>
+            <result property="orecid" column="orecid" jdbcType="INTEGER"/>
+            <result property="onum" column="onum" jdbcType="VARCHAR"/>
+            <result property="ostate" column="ostate" jdbcType="INTEGER"/>
+            <result property="ordertime" column="ordertime" jdbcType="TIMESTAMP"/>
+            <result property="ototal" column="ototal" jdbcType="FLOAT"/>
+            <result property="oexpinfo" column="oexpinfo" jdbcType="VARCHAR"/>
+            <result property="ointegral" column="ointegral" jdbcType="VARCHAR"/>
+            <result property="onote" column="onote" jdbcType="VARCHAR"/>
+            <result property="size" column="size" jdbcType="FLOAT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        oid,ouid,sid,
+        ocount,orecid,onum,
+        ostate,ordertime,ototal,
+        oexpinfo,ointegral,onote,
+        size
+    </sql>
+</mapper>

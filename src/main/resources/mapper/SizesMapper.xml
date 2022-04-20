@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiao.mapper.SizesMapper">
+
+    <resultMap id="BaseResultMap" type="com.qiao.pojo.Sizes">
+            <id property="sizeid" column="sizeid" jdbcType="INTEGER"/>
+            <result property="sizenum" column="sizenum" jdbcType="FLOAT"/>
+            <result property="sremarks" column="sremarks" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        sizeid,sizenum,sremarks
+    </sql>
+</mapper>

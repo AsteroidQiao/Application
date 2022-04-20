@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiao.mapper.ReceivesMapper">
+
+    <resultMap id="BaseResultMap" type="com.qiao.pojo.Receives">
+            <id property="recid" column="recid" jdbcType="INTEGER"/>
+            <result property="ruid" column="ruid" jdbcType="INTEGER"/>
+            <result property="readdress" column="readdress" jdbcType="VARCHAR"/>
+            <result property="rectreet" column="rectreet" jdbcType="VARCHAR"/>
+            <result property="rephone" column="rephone" jdbcType="VARCHAR"/>
+            <result property="recisdefault" column="recisdefault" jdbcType="INTEGER"/>
+            <result property="recreceiver" column="recreceiver" jdbcType="VARCHAR"/>
+            <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+            <result property="recprovince" column="recprovince" jdbcType="VARCHAR"/>
+            <result property="reccity" column="reccity" jdbcType="VARCHAR"/>
+            <result property="recdistrict" column="recdistrict" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        recid,ruid,readdress,
+        rectreet,rephone,recisdefault,
+        recreceiver,remarks,recprovince,
+        reccity,recdistrict
+    </sql>
+</mapper>

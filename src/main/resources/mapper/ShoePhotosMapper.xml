@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiao.mapper.ShoePhotosMapper">
+
+    <resultMap id="BaseResultMap" type="com.qiao.pojo.ShoePhotos">
+            <id property="spid" column="spid" jdbcType="INTEGER"/>
+            <result property="spSid" column="sp_sid" jdbcType="INTEGER"/>
+            <result property="spurl" column="spurl" jdbcType="VARCHAR"/>
+            <result property="spremarks" column="spremarks" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        spid,sp_sid,spurl,
+        spremarks
+    </sql>
+</mapper>

@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    druid:
+      #Changing the database name
+      url: jdbc:mysql://127.0.0.1/WebApp
+#      url: jdbc:mysql://localhost:3306/WebApp
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+      initialSize: 10
+      maxActive: 20
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      testWhileIdle: true
+      testOnBorrow: true
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+      validationQuery: SELECT 1
+      validation-query-timeout: 500
+      filters: stat,wall
+
+      stat-view-servlet.enabled: true
+      stat-view-servlet.url-pattern: /druid/*
+      stat-view-servlet.reset-enable: true
+      stat-view-servlet.login-username: admin
+      stat-view-servlet.login-password: admin
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+server:
+  port: 9090
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+

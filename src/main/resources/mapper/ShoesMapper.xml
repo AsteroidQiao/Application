@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiao.mapper.ShoesMapper">
+
+    <resultMap id="BaseResultMap" type="com.qiao.pojo.Shoes">
+            <id property="sid" column="sid" jdbcType="INTEGER"/>
+            <result property="tid" column="tid" jdbcType="INTEGER"/>
+            <result property="sbid" column="sbid" jdbcType="INTEGER"/>
+            <result property="snum" column="snum" jdbcType="VARCHAR"/>
+            <result property="sname" column="sname" jdbcType="VARCHAR"/>
+            <result property="sprices" column="sprices" jdbcType="FLOAT"/>
+            <result property="sdiscount" column="sdiscount" jdbcType="FLOAT"/>
+            <result property="spubtime" column="spubtime" jdbcType="TIMESTAMP"/>
+            <result property="sproducer" column="sproducer" jdbcType="VARCHAR"/>
+            <result property="sgender" column="sgender" jdbcType="VARCHAR"/>
+            <result property="scolor" column="scolor" jdbcType="VARCHAR"/>
+            <result property="sinfo" column="sinfo" jdbcType="VARCHAR"/>
+            <result property="stimessold" column="stimessold" jdbcType="INTEGER"/>
+            <result property="simage" column="simage" jdbcType="VARCHAR"/>
+            <result property="sdetail" column="sdetail" jdbcType="VARCHAR"/>
+            <result property="sintegral" column="sintegral" jdbcType="FLOAT"/>
+            <result property="sdelete" column="sdelete" jdbcType="INTEGER"/>
+            <result property="sremarks" column="sremarks" jdbcType="VARCHAR"/>
+            <result property="sandroiding" column="sandroiding" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        sid,tid,sbid,
+        snum,sname,sprices,
+        sdiscount,spubtime,sproducer,
+        sgender,scolor,sinfo,
+        stimessold,simage,sdetail,
+        sintegral,sdelete,sremarks,
+        sandroiding
+    </sql>
+</mapper>
