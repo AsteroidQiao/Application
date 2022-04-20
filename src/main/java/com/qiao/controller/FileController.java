@@ -24,8 +24,8 @@ import java.util.List;
 @RequestMapping("/file")
 public class FileController {
     //定义上传地址
-//    private String fileUploadPath = "D:/load/";
-    private String fileUploadPath = "/www/wwwroot/load/";
+    private String fileUploadPath = "D:/load/";
+//    private String fileUploadPath = "/www/wwwroot/load/";
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
@@ -60,8 +60,8 @@ public class FileController {
             // 数据库若不存在重复文件，上传文件到磁盘
             file.transferTo(uploadFile);
             // 生成url
-            url = "http://123.60.85.87:9090/file/" + fileUUID;
-//            url = "http://127.0.0.1:9090/file/" + fileUUID;
+//            url = "http://123.60.85.87:9090/file/" + fileUUID;
+            url = "http://127.0.0.1:9090/file/" + fileUUID;
         }
 
         // 存储数据库，数据库允许有重复文件

@@ -2,8 +2,8 @@ spring:
   datasource:
     druid:
       #Changing the database name
-      url: jdbc:mysql://123.60.85.87/WebApp
-#      url: jdbc:mysql://127.0.0.1/WebApp
+#      url: jdbc:mysql://123.60.85.87/WebApp
+      url: jdbc:mysql://127.0.0.1/WebApp
       username: root
       password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
