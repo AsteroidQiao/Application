@@ -24,6 +24,8 @@ import java.util.List;
 @RequestMapping("/file")
 public class FileController {
     //定义上传地址
+//    123.60.85.87
+//    127.0.0.1
     private String fileUploadPath = "D:/load/";
 //    private String fileUploadPath = "/www/wwwroot/load/";
     @Autowired

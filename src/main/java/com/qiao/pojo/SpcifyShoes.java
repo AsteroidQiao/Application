@@ -21,6 +21,11 @@ public class SpcifyShoes implements Serializable {
     private Integer spsid;
 
     /**
+     * 用户id
+     */
+    private Integer uid;
+
+    /**
      * 类型 ID types 表外键
      */
     private Integer tid;
