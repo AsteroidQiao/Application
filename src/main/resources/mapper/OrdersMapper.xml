@@ -7,8 +7,6 @@
     <resultMap id="BaseResultMap" type="com.qiao.pojo.Orders">
             <id property="oid" column="oid" jdbcType="INTEGER"/>
             <result property="ouid" column="ouid" jdbcType="INTEGER"/>
-            <result property="sid" column="sid" jdbcType="INTEGER"/>
-            <result property="ocount" column="ocount" jdbcType="INTEGER"/>
             <result property="orecid" column="orecid" jdbcType="INTEGER"/>
             <result property="onum" column="onum" jdbcType="VARCHAR"/>
             <result property="ostate" column="ostate" jdbcType="INTEGER"/>
@@ -18,13 +16,15 @@
             <result property="ointegral" column="ointegral" jdbcType="VARCHAR"/>
             <result property="onote" column="onote" jdbcType="VARCHAR"/>
             <result property="size" column="size" jdbcType="FLOAT"/>
+            <result property="sid" column="sid" jdbcType="INTEGER"/>
+            <result property="ocount" column="ocount" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        oid,ouid,sid,
-        ocount,orecid,onum,
-        ostate,ordertime,ototal,
-        oexpinfo,ointegral,onote,
-        size
+        oid,ouid,orecid,
+        onum,ostate,ordertime,
+        ototal,oexpinfo,ointegral,
+        onote,size,sid,
+        ocount
     </sql>
 </mapper>

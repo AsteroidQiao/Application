@@ -24,10 +24,10 @@ import java.util.List;
 @RequestMapping("/file")
 public class FileController {
     //定义上传地址
-//    123.60.85.87
-//    127.0.0.1
+//    123.60.85.87      华为云
+//    127.0.0.1         本地
     private String fileUploadPath = "D:/load/";
-//    private String fileUploadPath = "/www/wwwroot/load/";
+    //    private String fileUploadPath = "/www/wwwroot/load/";
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
@@ -75,19 +75,21 @@ public class FileController {
         saveFile.setMd5(md5);
         filesService.getBaseMapper().insert(saveFile);
 
-        // 最简单的方式：直接清空缓存
-        //flushRedis("Test");
+        // 更新之后清空缓存
+        delCache("Test");
 
         return url;
     }
+
     /**
      * 文件下载接口
+     *
      * @param fileUUID
      * @param response
      * @throws IOException
      */
     @GetMapping("/{fileUUID}")
-    public void downloa (@PathVariable String fileUUID, HttpServletResponse response) throws IOException {
+    public void download(@PathVariable String fileUUID, HttpServletResponse response) throws IOException {
         // 根据文件的唯一标识码获取文件
         File uploadFile = new File(fileUploadPath + fileUUID);
         // 设置输出流的格式
@@ -120,7 +122,7 @@ public class FileController {
     }
 
     // 删除缓存
-    private void flushRedis(String key) {
+    private void delCache(String key) {
         stringRedisTemplate.delete(key);
     }
 

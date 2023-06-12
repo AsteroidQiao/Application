@@ -21,10 +21,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .maxAge(3600);// 跨域允许时间，以秒为单位，3600=60*60，即一小时
     }
 
+
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-        interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());            //注册乐观锁插件
+        interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());            //注册乐观锁插件，暂时没用到
         interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));      //分页插件
         return interceptor;
     }

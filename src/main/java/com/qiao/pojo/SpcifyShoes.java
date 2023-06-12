@@ -15,75 +15,69 @@ import lombok.Data;
 @Data
 public class SpcifyShoes implements Serializable {
     /**
-     * 定制鞋 ID
+     * 瀹氬埗闉?ID
      */
     @TableId(type = IdType.AUTO)
     private Integer spsid;
 
     /**
-     * 用户id
+     * 绫诲瀷 ID types 琛ㄥ閿?
      */
-    private Integer uid;
+    private Integer spTid;
 
     /**
-     * 类型 ID types 表外键
+     * 鍝佺墝 ID brands 琛ㄥ閿?
      */
-    private Integer tid;
+    private Integer spBid;
 
     /**
-     * 品牌 ID brands 表外键
-     */
-    private Integer bid;
-
-    /**
-     * 鞋子编号
+     * 闉嬪瓙缂栧彿
      */
     private String spsseq;
 
     /**
-     * 鞋子名称
+     * 闉嬪瓙鍚嶇О
      */
     private String spsname;
 
     /**
-     * 鞋子价格
+     * 闉嬪瓙浠锋牸
      */
-    private String spsprices;
+    private Double spsprices;
 
     /**
-     * 详细信息
+     * 璇︾粏淇℃伅
      */
     private String spscontent;
 
     /**
-     * 部件数量
+     * 閮ㄤ欢鏁伴噺
      */
     private Integer spspartnum;
 
     /**
-     * 部件信息
+     * 閮ㄤ欢淇℃伅
      */
     private String spspartinfo;
 
     /**
-     * 鞋子性别
+     * 闉嬪瓙鎬у埆
      */
     private String spsgender;
 
     /**
-     * 定制 CSS
+     * 瀹氬埗 CSS
      */
     private Integer spscss;
 
     /**
-     * 备注
+     * 澶囨敞
      */
     private String spremarks;
-
     /**
-     * 鞋子大小
+     * 澶囨敞
      */
-    private Integer size;
+    private Integer uid;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

@@ -55,9 +55,9 @@ public class CommentsController {
     @PostMapping("/getShoes")
     public ResponseResult getShoes(@RequestParam Integer cid) {
         QueryWrapper<Comments> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("cid", cid).select("csid");
+        queryWrapper.eq("cid", cid).select("c_sid");
         Comments one = commentsService.getOne(queryWrapper);
-        int sid = one.getCsid();
+        int sid = one.getCSid();
         QueryWrapper<Shoes> shoesQueryWrapper = new QueryWrapper<>();
         shoesQueryWrapper.eq("sid", sid);
         return ResponseResult.okResult(shoesService.getOne(shoesQueryWrapper));
@@ -76,7 +76,7 @@ public class CommentsController {
     @GetMapping("/getComment")
     public ResponseResult findAll(@RequestParam Integer uid) {
         QueryWrapper<Comments> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("cuid", uid);
+        queryWrapper.eq("c_uid", uid);
         return ResponseResult.okResult(commentsService.list(queryWrapper));
     }
 

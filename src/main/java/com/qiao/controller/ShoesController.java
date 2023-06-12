@@ -39,7 +39,7 @@ public class ShoesController {
     @PostMapping
     public ResponseResult save(@RequestBody Shoes shoes) {
         //新增或者更新刷新缓存
-//        flushRedis("page");
+        flushRedis("page");
         shoesService.saveOrUpdate(shoes);
         return ResponseResult.okResult();
     }
@@ -47,7 +47,7 @@ public class ShoesController {
     @DeleteMapping("/{id}")
     public ResponseResult delete(@PathVariable Integer id) {
         //删除刷新缓存
-//        flushRedis("page");
+        flushRedis("page");
         shoesService.removeById(id);
         return ResponseResult.okResult();
     }
@@ -55,7 +55,7 @@ public class ShoesController {
     @PostMapping("/del/batch")
     public ResponseResult deleteBatch(@RequestBody List<Integer> ids) {
         //删除刷新缓存
-//        flushRedis("page");
+        flushRedis("page");
         shoesService.removeByIds(ids);
         return ResponseResult.okResult();
     }
@@ -70,28 +70,28 @@ public class ShoesController {
         return ResponseResult.okResult(shoesService.getById(id));
     }
 
-//    // 设置缓存 部署到云没有redis 不用了
-//    private Page<Shoes> Cache(Integer pageNum, Integer pageSize, String name) {
-//        // 1. 从缓存获取数据
-//        String jsonStr = stringRedisTemplate.opsForValue().get("page");
-//        Page<Shoes> page;
-//        if (StrUtil.isBlank(jsonStr)) {  // 2. 取出来的json是空的
-//            QueryWrapper<Shoes> queryWrapper = new QueryWrapper<>();
-//            queryWrapper.orderByAsc("sid");
-//            if (StrUtil.isNotBlank(name)) {
-//                queryWrapper.like("sname", name);
-//            }
-//            page = shoesService.page(new Page<>(pageNum, pageSize), queryWrapper);// 3. 从数据库取出数据
-//            // 4. 再去缓存到redis
-//            stringRedisTemplate.opsForValue().set("page", JSONUtil.toJsonStr(page));
-//        } else {
-//            // 减轻数据库的压力
-//            // 5. 如果有, 从redis缓存中获取数据
-//            page = JSONUtil.toBean(jsonStr, new TypeReference<Page<Shoes>>() {
-//            }, true);
-//        }
-//        return page;
-//    }
+    // 设置缓存 部署到云没有redis 就不用
+    private Page<Shoes> Cache(String name,Integer pageNum, Integer pageSize) {
+        // 1. 从缓存获取数据
+        String jsonStr = stringRedisTemplate.opsForValue().get("page");
+        Page<Shoes> page;
+        if (StrUtil.isBlank(jsonStr)) {  // 2. 取出来的json是空的
+            QueryWrapper<Shoes> queryWrapper = new QueryWrapper<>();
+            queryWrapper.orderByAsc("sid");
+            if (StrUtil.isNotBlank(name)) {
+                queryWrapper.like("sname", name);
+            }
+            page = shoesService.page(new Page<>(pageNum, pageSize), queryWrapper);// 3. 从数据库取出数据
+            // 4. 再去缓存到redis
+            stringRedisTemplate.opsForValue().set("page", JSONUtil.toJsonStr(page));
+        } else {
+            // 减轻数据库的压力
+            // 5. 如果有, 从redis缓存中获取数据
+            page = JSONUtil.toBean(jsonStr, new TypeReference<Page<Shoes>>() {
+            }, true);
+        }
+        return page;
+    }
 
     // 删除缓存
     private void flushRedis(String key) {
@@ -102,11 +102,16 @@ public class ShoesController {
     public ResponseResult findPage(@RequestParam String name,
                                    @RequestParam Integer pageNum,
                                    @RequestParam Integer pageSize) {
-        QueryWrapper<Shoes> queryWrapper = new QueryWrapper<>();
-        queryWrapper.orderByAsc("sid");
-        queryWrapper.like("sname", name);
-        Page<Shoes> page =shoesService.page(new Page<>(pageNum, pageSize), queryWrapper);
-        return ResponseResult.okResult(page);
+
+        //使用redis
+
+        return ResponseResult.okResult(Cache(name,pageNum,pageSize));
+        //没有使用redis
+        //QueryWrapper<Shoes> queryWrapper = new QueryWrapper<>();
+        //queryWrapper.orderByAsc("sid");
+        //queryWrapper.like("sname", name);
+        //Page<Shoes> page =shoesService.page(new Page<>(pageNum, pageSize), queryWrapper);
+        //return ResponseResult.okResult(page);
     }
 }
 

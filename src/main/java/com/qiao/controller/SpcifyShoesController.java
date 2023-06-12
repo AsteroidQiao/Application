@@ -75,7 +75,8 @@ public class SpcifyShoesController {
     public ResponseResult findPage(@RequestParam Integer pageNum,
                                    @RequestParam Integer pageSize) {
         QueryWrapper<SpcifyShoes> queryWrapper = new QueryWrapper<>();
-        queryWrapper.orderByDesc("id");
+        //查询未过期秒杀商品
+        queryWrapper.orderByDesc("id").eq("skisvalid", 0);
         return ResponseResult.okResult(spcifyShoesService.page(new Page<>(pageNum, pageSize), queryWrapper));
     }
 

@@ -6,8 +6,8 @@
 
     <resultMap id="BaseResultMap" type="com.qiao.pojo.Comments">
             <id property="cid" column="cid" jdbcType="INTEGER"/>
-            <result property="cuid" column="cuid" jdbcType="INTEGER"/>
-            <result property="csid" column="csid" jdbcType="INTEGER"/>
+            <result property="cUid" column="c_uid" jdbcType="INTEGER"/>
+            <result property="cSid" column="c_sid" jdbcType="INTEGER"/>
             <result property="sccomments" column="sccomments" jdbcType="VARCHAR"/>
             <result property="scscore" column="scscore" jdbcType="INTEGER"/>
             <result property="sctime" column="sctime" jdbcType="TIMESTAMP"/>
@@ -16,7 +16,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        cid,cuid,csid,
+        cid,c_uid,c_sid,
         sccomments,scscore,sctime,
         scoid,scremarks
     </sql>

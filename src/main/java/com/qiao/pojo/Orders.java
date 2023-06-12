@@ -16,70 +16,70 @@ import lombok.Data;
 @Data
 public class Orders implements Serializable {
     /**
-     * 订单ID自增
+     * 璁㈠崟ID鑷
      */
     @TableId(type = IdType.AUTO)
     private Integer oid;
 
     /**
-     * 用户ID users表外键
+     * 鐢ㄦ埛ID users琛ㄥ閿?
      */
     private Integer ouid;
 
     /**
-     * 商品shoesid外键
-     */
-    private Integer sid;
-
-    /**
-     * 订单数量
-     */
-    private Integer ocount;
-
-    /**
-     * 收货地址ID receives表外键
+     * 鏀惰揣鍦板潃ID receives琛ㄥ閿?
      */
     private Integer orecid;
 
     /**
-     * 订单编号
+     * 璁㈠崟缂栧彿
      */
     private String onum;
 
     /**
-     * 订单状态
+     * 璁㈠崟鐘舵€?
      */
     private Integer ostate;
 
     /**
-     * 下单时间
+     * 涓嬪崟鏃堕棿
      */
     private Date ordertime;
 
     /**
-     * 总价
+     * 鎬讳环
      */
     private Double ototal;
 
     /**
-     * 快递跟踪
+     * 蹇€掕窡韪?
      */
     private String oexpinfo;
 
     /**
-     * 总积分
+     * 鎬荤Н鍒?
      */
     private String ointegral;
 
     /**
-     * 备注
+     * 澶囨敞
      */
     private String onote;
 
     /**
-     * 鞋码
+     * 
      */
     private Double size;
+
+    /**
+     * 
+     */
+    private Integer sid;
+
+    /**
+     * 
+     */
+    private Integer ocount;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

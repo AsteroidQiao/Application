@@ -22,37 +22,37 @@ public class Comments implements Serializable {
     private Integer cid;
 
     /**
-     * 用户的ID users表的外键
+     * 鐢ㄦ埛鐨処D users琛ㄧ殑澶栭敭
      */
-    private Integer cuid;
+    private Integer cUid;
 
     /**
-     * 鞋子的ID shoes表的外外键
+     * 闉嬪瓙鐨処D shoes琛ㄧ殑澶栧閿?
      */
-    private Integer csid;
+    private Integer cSid;
 
     /**
-     * 评论内容
+     * 璇勮鍐呭
      */
     private String sccomments;
 
     /**
-     * 用户评分
+     * 鐢ㄦ埛璇勫垎
      */
     private Integer scscore;
 
     /**
-     * 评论时间
+     * 璇勮鏃堕棿
      */
     private Date sctime;
 
     /**
-     * 从属订单号
+     * 浠庡睘璁㈠崟鍙?
      */
     private Integer scoid;
 
     /**
-     * 备注
+     * 澶囨敞
      */
     private String scremarks;
 

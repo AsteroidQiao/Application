@@ -6,26 +6,23 @@
 
     <resultMap id="BaseResultMap" type="com.qiao.pojo.SpcifyShoes">
             <id property="spsid" column="spsid" jdbcType="INTEGER"/>
-            <result property="uid" column="uid" jdbcType="INTEGER"/>
-            <result property="tid" column="tid" jdbcType="INTEGER"/>
-            <result property="bid" column="bid" jdbcType="INTEGER"/>
+            <result property="spTid" column="sp_tid" jdbcType="INTEGER"/>
+            <result property="spBid" column="sp_bid" jdbcType="INTEGER"/>
             <result property="spsseq" column="spsseq" jdbcType="VARCHAR"/>
             <result property="spsname" column="spsname" jdbcType="VARCHAR"/>
-            <result property="spsprices" column="spsprices" jdbcType="VARCHAR"/>
+            <result property="spsprices" column="spsprices" jdbcType="FLOAT"/>
             <result property="spscontent" column="spscontent" jdbcType="VARCHAR"/>
             <result property="spspartnum" column="spspartnum" jdbcType="INTEGER"/>
             <result property="spspartinfo" column="spspartinfo" jdbcType="VARCHAR"/>
             <result property="spsgender" column="spsgender" jdbcType="VARCHAR"/>
             <result property="spscss" column="spscss" jdbcType="INTEGER"/>
             <result property="spremarks" column="spremarks" jdbcType="VARCHAR"/>
-            <result property="size" column="size" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        spsid,uid,tid,
-        bid,spsseq,spsname,
-        spsprices,spscontent,spspartnum,
-        spspartinfo,spsgender,spscss,
-        spremarks,size
+        spsid,sp_tid,sp_bid,
+        spsseq,spsname,spsprices,
+        spscontent,spspartnum,spspartinfo,
+        spsgender,spscss,spremarks
     </sql>
 </mapper>

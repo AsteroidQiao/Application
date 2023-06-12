@@ -39,7 +39,7 @@ public class CodeGenerator {
                     //builder.mapperBuilder().enableMapperAnnotation().build();// 开启 @Mapper 注解
                     builder.controllerBuilder().enableHyphenStyle()  // 开启驼峰转连字符
                             .enableRestStyle();  // 开启生成@RestController 控制器
-                    builder.addInclude("orders20") // 设置需要生成的表名                        改表名
+                    builder.addInclude("carousel") // 设置需要生成的表名                        改表名
                             .addTablePrefix("t_", "sys_"); // 设置过滤表前缀
                 })
                 .templateConfig(tem -> {
